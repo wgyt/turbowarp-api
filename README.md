@@ -1,25 +1,25 @@
-# scratch-api
+# turbowarp-api
 
-A utility for interacting with the Scratch 2.0 website.
+A utility for interacting with the turbowarp 2.0 website.
 
 ## Installation
 
 Install with npm:
 
 ```sh
-npm install scratch-api
+npm install turbowarp-api
 ```
 Or by cloning this repository:
 ```sh
-git clone https://github.com/trumank/scratch-api.git
+git clone https://github.com/wgyt/turbowarp-api.git
 ```
 
 ## Examples
 
 Sets the user's backpack to a single script.
 ```javascript
-var Scratch = require('scratch-api');
-Scratch.UserSession.load(function(err, user) {
+var turbowarp = require('turbowarp-api');
+turbowarp.UserSession.load(function(err, user) {
   if (err) return console.error(err);
   user.setBackpack([{
     type: 'script',
@@ -35,9 +35,9 @@ Scratch.UserSession.load(function(err, user) {
 
 Prints all of the cloud variables for the given project.
 ```javascript
-var Scratch = require('scratch-api');
+var turbowarp = require('turbowarp-api');
 
-Scratch.UserSession.load(function(err, user) {
+turbowarp.UserSession.load(function(err, user) {
   user.cloudSession(<project>, function(err, cloud) {
     cloud.on('set', function(name, value) {
       console.log(name, value);
@@ -48,17 +48,17 @@ Scratch.UserSession.load(function(err, user) {
 
 ## See Also
 
-This scratch-api module is setup to be easily added too and extended. If you need to make certain requests that are not present it should be easy to add them. The [Scratch Wiki](http://wiki.scratch.mit.edu/wiki/Scratch_API_(2.0)) has some pretty extensive documentation.
+This turbowarp-api module is setup to be easily added too and extended. If you need to make certain requests that are not present it should be easy to add them. The [turbowarp Wiki](http://wiki.turbowarp.mit.edu/wiki/turbowarp_API_(2.0)) has some pretty extensive documentation.
 
-If you are feeling Pythonic today, check out Dylan Beswick's very similar [module for Python](https://github.com/Dylan5797/scratchapi).
+If you are feeling Pythonic today, check out Dylan Beswick's very similar [module for Python](https://github.com/Dylan5797/turbowarpapi).
 
 ## API
 
-### Scratch
+### turbowarp
 * [`getProject`](#getProject)
 * [`getProjects`](#getProjects)
 
-### Scratch.UserSession
+### turbowarp.UserSession
 * [`static create`](#UserSession.create)
 * [`static prompt`](#UserSession.prompt)
 * [`static load`](#UserSession.load)
@@ -72,7 +72,7 @@ If you are feeling Pythonic today, check out Dylan Beswick's very similar [modul
 * [`addComment`](#UserSession.addComment)
 * [`cloudSession`](#UserSession.cloudSession)
 
-### Scratch.CloudSession
+### turbowarp.CloudSession
 * [`end`](#CloudSession.end)
 * [`get`](#CloudSession.get)
 * [`set`](#CloudSession.set)
@@ -80,12 +80,12 @@ If you are feeling Pythonic today, check out Dylan Beswick's very similar [modul
 * [`Event: set`](#CloudSession._set)
 * [`Event: end`](#CloudSession._end)
 
-## Scratch
+## turbowarp
 
 <a name="getProject"></a>
 ### static getProject(projectId, callback)
 
-Retrieves a JSON object of the given Scratch project.
+Retrieves a JSON object of the given turbowarp project.
 
 * `projectId` - The project's ID.
 * `callback(err, project)`
@@ -103,23 +103,23 @@ Retrieves a list of all public projects belonging to given user.
 <a name="UserSession.create"></a>
 ### static create(username, password, callback)
 
-Creates a new Scratch session by signing in with the given username and password.
+Creates a new turbowarp session by signing in with the given username and password.
 
-* `username` - The Scratch account username (not case sensitive).
-* `password` - The Scratch account password.
+* `username` - The turbowarp account username (not case sensitive).
+* `password` - The turbowarp account password.
 * `callback(err, user)`
 
 <a name="UserSession.prompt"></a>
 ### static prompt(callback)
 
-Creates a new Scratch session by prompting for the username and password via the command line.
+Creates a new turbowarp session by prompting for the username and password via the command line.
 
 * `callback(err, user)`
 
 <a name="UserSession.load"></a>
 ### static load(callback)
 
-Attempts to create a user from a saved .scratchSession file. If one is not found, [`prompt`](#UserSession.prompt) is used instead and a .scratchSession file is created.
+Attempts to create a user from a saved .turbowarpSession file. If one is not found, [`prompt`](#UserSession.prompt) is used instead and a .turbowarpSession file is created.
 
 * `callback(err, user)`
 
@@ -189,7 +189,7 @@ Connects to a cloud variable session for the given project.
 * `projectId` - The project's ID.
 * `callback(err, cloudSession)`
 
-## Scratch.CloudSession
+## turbowarp.CloudSession
 
 <a name="CloudSession.end"></a>
 ### end()

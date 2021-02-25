@@ -6,11 +6,11 @@ var crypto = require('crypto');
 var fs = require('fs');
 var WebSocket = require('ws');
 
-var SERVER = 'turbowarp.org';
-var PROJECTS_SERVER = 'projects.turbowarp.org';
-var CDN_SERVER = 'cdn.turbowarp.org';
+var SERVER = 'scratch.mit.edu';
+var PROJECTS_SERVER = 'projects.scratch.mit.edu';
+var CDN_SERVER = 'cdn.scratch.mit.edu';
 var CLOUD_SERVER = 'clouddata.turbowarp.org';
-var API_SERVER = 'api.turbowarp.org';
+var API_SERVER = 'api.scratch.mit.edu';
 
 var SESSION_FILE = '.scratchSession';
 
