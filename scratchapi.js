@@ -6,11 +6,11 @@ var crypto = require('crypto');
 var fs = require('fs');
 var WebSocket = require('ws');
 
-var SERVER = 'scratch.mit.edu';
-var PROJECTS_SERVER = 'projects.scratch.mit.edu';
-var CDN_SERVER = 'cdn.scratch.mit.edu';
-var CLOUD_SERVER = 'clouddata.scratch.mit.edu';
-var API_SERVER = 'api.scratch.mit.edu';
+var SERVER = 'turbowarp.org';
+var PROJECTS_SERVER = 'projects.turbowarp.org';
+var CDN_SERVER = 'cdn.turbowarp.org';
+var CLOUD_SERVER = 'clouddata.turbowarp.org';
+var API_SERVER = 'api.turbowarp.org';
 
 var SESSION_FILE = '.scratchSession';
 
@@ -18,7 +18,7 @@ function request(options, cb) {
   var headers = {
     'Cookie': 'scratchcsrftoken=a; scratchlanguage=en;',
     'X-CSRFToken': 'a',
-    'referer': 'https://scratch.mit.edu' // Required by Scratch servers
+    'referer': 'https://turbowarp.org' // Required by Scratch servers
   };
   if (options.headers) {
     for (var name in options.headers) {
@@ -243,7 +243,7 @@ Scratch.CloudSession.prototype._connect = function(cb) {
   this.connection = new WebSocket('wss://' + CLOUD_SERVER + '/', [], {
       headers: {
         cookie: 'scratchsessionsid=' + this.user.sessionId + ';',
-        origin: 'https://scratch.mit.edu'
+        origin: 'https://turbowarp.org'
       }
     }
   );
