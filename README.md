@@ -1,6 +1,6 @@
 # turbowarp-api
 
-A utility for interacting with the turbowarp 2.0 website.
+A utility for interacting with the Scratch website and turbowarp cloud data api.
 
 ## Installation
 
